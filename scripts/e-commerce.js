@@ -1,4 +1,4 @@
-let data = [
+let e_commerce = [
   {
     id: 1,
     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -206,3 +206,62 @@ let data = [
     rating: { rate: 3.6, count: 145 },
   },
 ];
+
+const mainContainer = document.getElementById("content");
+const allProject = document.getElementById("allProject");
+const oneToFive = document.getElementById("oneToFive");
+const btnFiveToTen = document.getElementById("fiveToTen");
+const tenToFifteen = document.getElementById("tenToFifteen");
+const fifteenToFifty = document.getElementById("fifteenToFifty");
+
+function renderProduct(productArray) {
+  const displayContent = productArray
+    .map((product) => {
+      return `<div class="product">
+                <img src=${product.image} alt="avatar"/>
+                 <p>Price: <span>${product.price}</span></p>
+                 <p>Raiting: <span>${product.rating.rate}</span></p>
+                 <p>Category: <span>${product.category}</span></p>
+              </div>`;
+    })
+    .join("");
+
+  // const errorContent = `<div>Data not found</div>`;
+
+  mainContainer.innerHTML =
+    productArray && productArray.length > 0 ? displayContent : errorContent;
+}
+
+
+
+allProject.onclick = function () {
+  renderProduct(e_commerce);
+};
+
+oneToFive.onclick = function () {
+  const filteredArray = e_commerce.filter(
+    (item) => item.price >= 50 //&& item.id < 5
+  );
+  renderProduct(filteredArray);
+};
+
+btnFiveToTen.onclick = function () {
+  const filteredArray = e_commerce.filter(
+    (item) => item.rating >= 3 //&& item.id < 10
+  );
+  renderProduct(filteredArray);
+};
+
+tenToFifteen.onclick = function () {
+  const filteredArray = e_commerce.filter(
+    (item) => item.category === "jewelery" //&& item.id < 15
+  );
+
+  // TODO: if data is empty what we can do ?
+  renderProduct(filteredArray);
+};
+
+
+// did i use it correct ?
+document.body.onload = renderProduct(e_commerce);
+

@@ -23279,65 +23279,44 @@ const COUNTRIES_LIST = [
   },
 ];
 
-const mainContainer = document.getElementById("content");
-const allUsers = document.getElementById("allUsers");
-const oneToFive = document.getElementById("oneToFive");
-const btnFiveToTen = document.getElementById("fiveToTen");
-const tenToFifteen = document.getElementById("tenToFifteen");
-const fifteenToFifty = document.getElementById("fifteenToFifty");
+const mainContainer = document.getElementById("content")
+const allCountries = document.getElementById("allCountries")
+const secondBtn = document.getElementById("secondBtn")
+const thirdBtn = document.getElementById("thirdBtn")
 
-function renderUser(countriesArray) {
-  const displayContent = userArray.map((user) => {
-      return `<div class="user">
-                <img src=${user.avatar_url} alt="avatar"/>
-                <p>Login: <span>${user.login}</span></p>
-                <p>Id: <span>${user.id}</span></p>
-            </div>`;
-    })
-    .join("");
+function renderCountries(countryArray) {
+  const displayContent = countryArray.map((country) => {
+    return `<div class ="product">
+         <img src=${country.flags.png} alt="flag"/>
+         <p>Region: <span>${country.region}</span></p>
+         <p>isIndependent: <span>${country.independent}</span></p>
+         <p>Area: <span>${country.area}</span></p>
+    </div>`;
+  })
+    .join("")
+
 
   const errorContent = `<div>Data not found</div>`;
 
   mainContainer.innerHTML =
-    userArray && userArray.length > 0 ? displayContent : errorContent;
+    countryArray && countryArray.length > 0 ? displayContent : errorContent;
 }
 
-//https://stackoverflow.com/questions/12713564/function-in-javascript-that-can-be-called-only-once
-//renderUser(GITHUB_USERS);
+allCountries.onclick = function () {
+  renderCountries(COUNTRIES_LIST);
+}
 
-allUsers.onclick = function () {
-  renderUser(GITHUB_USERS);
-};
 
-oneToFive.onclick = function () {
-  const filteredArray = GITHUB_USERS.filter(
-    (item) => item.id >= 1 && item.id < 5
+secondBtn.onclick = function () {
+  const filteredArray = COUNTRIES_liST.filter(
+    (item) => item.region === "Asia"
   );
-  renderUser(filteredArray);
+  renderCountries(filteredArray);
 };
 
-btnFiveToTen.onclick = function () {
-  const filteredArray = GITHUB_USERS.filter(
-    (item) => item.id >= 5 && item.id < 10
-  );
-  renderUser(filteredArray);
-};
-
-tenToFifteen.onclick = function () {
-  const filteredArray = GITHUB_USERS.filter(
-    (item) => item.id > 10 && item.id < 15
-  );
-
-  // TODO: if data is empty what we can do ?
-  renderUser(filteredArray);
-};
-
-fifteenToFifty.onclick = function () {
-  const filteredArray = GITHUB_USERS.filter(
-    (item) => item.id > 15 && item.id < 50
-  );
-  renderUser(filteredArray);
-};
-
-// did i use it correct ?
-document.body.onload = renderUser(GITHUB_USERS);
+thirdBtn.onclick = function () {
+  const filteredArray = COUNTRIES_LIST.filter(
+    (item) => item.independent === true
+  )
+  renderCountries(filteredArray)
+}
