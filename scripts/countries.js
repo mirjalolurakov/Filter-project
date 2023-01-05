@@ -23283,6 +23283,7 @@ const mainContainer = document.getElementById("content")
 const allCountries = document.getElementById("allCountries")
 const secondBtn = document.getElementById("secondBtn")
 const thirdBtn = document.getElementById("thirdBtn")
+const fourthBtn = document.getElementById("fourthBtn")
 
 function renderCountries(countryArray) {
   const displayContent = countryArray.map((country) => {
@@ -23290,6 +23291,7 @@ function renderCountries(countryArray) {
          <img src=${country.flags.png} alt="flag"/>
          <p>Region: <span>${country.region}</span></p>
          <p>isIndependent: <span>${country.independent}</span></p>
+         <p>Population: <span>${country.population}</span></p>
          <p>Area: <span>${country.area}</span></p>
     </div>`;
   })
@@ -23317,6 +23319,13 @@ secondBtn.onclick = function () {
 thirdBtn.onclick = function () {
   const filteredArray = COUNTRIES_LIST.filter(
     (item) => item.independent === true
+  )
+  renderCountries(filteredArray)
+}
+
+fourthBtn.onclick = function () {
+  const filteredArray = COUNTRIES_LIST.filter(
+    (item) => item.population >= 500000
   )
   renderCountries(filteredArray)
 }
