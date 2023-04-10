@@ -23287,7 +23287,7 @@ const fourthBtn = document.getElementById("fourthBtn")
 
 function renderCountries(countryArray) {
   const displayContent = countryArray.map((country) => {
-    return `<div class ="product">
+    return `<div class ="product">  
          <img src=${country.flags.png} alt="flag"/>
          <p>Region: <span>${country.region}</span></p>
          <p>isIndependent: <span>${country.independent}</span></p>
@@ -23310,7 +23310,7 @@ allCountries.onclick = function () {
 
 
 secondBtn.onclick = function () {
-  const filteredArray = COUNTRIES_liST.filter(
+  const filteredArray = COUNTRIES_LIST.filter(
     (item) => item.region === "Asia"
   );
   renderCountries(filteredArray);
@@ -23318,7 +23318,7 @@ secondBtn.onclick = function () {
 
 thirdBtn.onclick = function () {
   const filteredArray = COUNTRIES_LIST.filter(
-    (item) => item.independent === true
+ (item) => item.independent === true
   )
   renderCountries(filteredArray)
 }

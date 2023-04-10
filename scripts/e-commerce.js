@@ -222,11 +222,13 @@ function renderProduct(productArray) {
                  <p>Price: <span>${product.price}</span></p>
                  <p>Raiting: <span>${product.rating.rate}</span></p>
                  <p>Category: <span>${product.category}</span></p>
+                 <p>Category: <span>${product.category}</span></p>
+                 <p>Image1: <span>${product.title}</span></p>
               </div>`;
     })
     .join("");
 
-  // const errorContent = `<div>Data not found</div>`;
+  const errorContent = `<div>Data not found</div>`;
 
   mainContainer.innerHTML =
     productArray && productArray.length > 0 ? displayContent : errorContent;
@@ -247,7 +249,7 @@ oneToFive.onclick = function () {
 
 btnFiveToTen.onclick = function () {
   const filteredArray = e_commerce.filter(
-    (item) => item.rating >= 3 //&& item.id < 10
+    (item) => item.rating = 3 //&& item.id < 10
   );
   renderProduct(filteredArray);
 };
