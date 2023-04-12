@@ -711,7 +711,7 @@ const commentBtn = document.getElementById("commentBtn")
 const nytimesBtn = document.getElementById("nytimesBtn")
 
 
-function renderFootbalPoinst(footbalArray) {
+function renderFootbalPoints(footbalArray) {
     const displayContent = footbalArray.map((footbal) => {
         return `<div class ="content">
                     <h1>${footbal.title}</h1>
@@ -748,33 +748,29 @@ function renderFootbalPoinst(footbalArray) {
 
 
 allNewsBtn.onclick = function () {
-    renderFootbalPoinst(FOOTBALL_POINTS);
+    renderFootbalPoints(FOOTBALL_POINTS);
 }
 
 dataBtn.onclick = function () {
     const filteredArray = FOOTBALL_POINTS.filter((item) =>
         item.created_at = 2016
-    )
-    renderFootbalPoinst(filteredArray)
-
+    );
+    renderFootbalPoints(filteredArray)
 }
-
 authorStartingBtn.onclick = function () {
-    const filteredArray = FOOTBALL_POINTS.filter((item) => {
-        item.author === "d"
-    })
-    renderFootbalPoinst(filteredArray)
+    const filteredArray = FOOTBALL_POINTS.filter(
+        (item) => item.author === "d"
+    )
+    renderFootbalPoints(filteredArray)
 }
+
 commentBtn.onclick = function () {
-    const filteredArray = FOOTBALL_POINTS.filter((item) => {
-        item.num_comments > 200
-
-    })
-    renderFootbalPoinst(filteredArray)
+    const filteredArray = FOOTBALL_POINTS.filter(
+        (item) => item.comment_text = 200
+    )
+    renderFootbalPoints(filteredArray)
 }
 
-nytimesBtn.onclick = function () {
-    const getUrl = item.url
-    renderFootbalPoinst(getUrl)
-}
-document.body.onload = renderFootbalPoinst(FOOTBALL_POINTS)
+
+
+document.body.onload = renderFootbalPoints(FOOTBALL_POINTS)

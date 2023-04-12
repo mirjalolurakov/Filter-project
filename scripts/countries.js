@@ -23329,3 +23329,5 @@ fourthBtn.onclick = function () {
   )
   renderCountries(filteredArray)
 }
+
+document.body.onload = renderCountries(COUNTRIES_LIST)
