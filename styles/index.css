@@ -184,3 +184,29 @@ button:hover {
   display: flex;
   gap: 5px;
 }
+
+.cars {
+  background-color: violet;
+  display: grid;
+  gap: 20px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: (1fr);
+  padding: 20px;
+  margin: 20px;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 20px 0px 0px 20px;
+
+  background-color: rgb(231, 118, 212);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+
+}
+
+.cars__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+
+}
